@@ -6,6 +6,10 @@ const logger = require('./middleware/logger')
 const app = express()
 app.use(logger)
 
+// Include Body Parser
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
+
 // SET STATIC FOLDER
 app.use(express.static(path.join(__dirname, 'public')))
 
