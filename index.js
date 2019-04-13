@@ -1,9 +1,10 @@
 const express = require('express')
+const path = require('path')
+
 const app = express()
 
-app.get('/', (req, res) => {
-    res.send('<h1>Hello From Express!</h1>')
-})
+// SET STATIC FOLDER
+app.use(express.static(path.join(__dirname, 'public')))
 
 const PORT = process.env.PORT || 5000
 
