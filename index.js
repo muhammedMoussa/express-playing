@@ -1,8 +1,12 @@
 const express = require('express')
 const path = require('path')
+
 const data = require('./data')
+const logger = require('./middleware/logger')
 
 const app = express()
+
+app.use(logger)
 
 app.get('/api/members', (req, res) => {
     res.json(data.members)
