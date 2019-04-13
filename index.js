@@ -1,15 +1,14 @@
 const express = require('express')
 const path = require('path')
 
-const data = require('./data')
 const logger = require('./middleware/logger')
 
 const app = express()
-
-// app.use(logger)
+app.use(logger)
 
 // SET STATIC FOLDER
 app.use(express.static(path.join(__dirname, 'public')))
+
 // Api Router
 app.use('/api/members', require('./routes/api/members'))
 
